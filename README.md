@@ -225,13 +225,6 @@ L-Isola/
 - `image-rendering: pixelated` ovunque; la texture UI è un foglio 2x2 (legno scuro / chiaro / pergamena / pietra) via `background-position`.
 - Funziona **anche con `file://`** (doppio click): nessun fetch, tutto inline.
 
-## 🎮 Giocare
-
-1. **Online**: attiva GitHub Pages dal tab *Settings → Pages → Deploy from a branch → `main` / root*, poi apri
-   `https://SancioPanza88.github.io/L-Isola/`.
-2. **Da telefono**: con GitHub Pages il gioco funziona dal browser del telefono (o aggiungila a Home screen: sembra un'app).
-3. **Offline**: scarica il repo e fai doppio click su `index.html`.
-
 
 ---
 
