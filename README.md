@@ -232,9 +232,6 @@ L-Isola/
 2. **Da telefono**: con GitHub Pages il gioco funziona dal browser del telefono (o aggiungila a Home screen: sembra un'app).
 3. **Offline**: scarica il repo e fai doppio click su `index.html`.
 
-## 🤝 Contribuire
-
-Leggi `PROMPTS.md` per la guida grafica. Per le carte: aggiungi un oggetto in `CARDS` in `game.js` (+ `art/c31.png`, ...). Per gli eventi: `EVENTS` (+ `icon_e13.png`, ...). Regole d'oro: **mai testo nelle immagini**, stessa palette tropicale.
 
 ---
 
