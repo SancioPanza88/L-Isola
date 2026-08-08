@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manuale - L'ISOLA</title>
+<link rel="stylesheet" href="manual.css">
+</head>
+<body>
+
+<header id="hero">
+  <div id="hero-sfondo"></div>
+  <div id="hero-contenuto">
+    <img id="hero-logo" src="art/logo.png" alt="Logo">
+    <h1>L'ISOLA</h1>
+    <p class="sottotitolo">Manuale del naufrago</p>
+    <p class="tagline">Sopravvivi 21 giorni su un'isola deserta, giocando carte di risorse, strumenti e persone.</p>
+    <a id="torna" href="index.html">&#8592; Torna al gioco</a>
+  </div>
+  <div id="onda-eroe"></div>
+</header>
+
+<main>
+
+  <section class="reveal">
+    <h2>&#127959;&#65039; OBIETTIVO</h2>
+    <div class="riquadro doppio">
+      <div class="pannello vittoria-panel">
+        <h3>VITTORIA</h3>
+        <p>Sei un naufrago su un'isola deserta. Se sopravvivi <b>21 giorni</b>, il <b>giorno 22</b> arriva la nave di soccorso.</p>
+        <img src="art/icon_e8.png" alt="Nave all'orizzonte">
+      </div>
+      <div class="pannello sconfitta-panel">
+        <h3>SCONFITTA</h3>
+        <p>Se i <b>Punti Vita (PV)</b> arrivano a <b>0</b>, l'isola vince su di te. Parti con 20 PV.</p>
+        <img src="art/icon_e4.png" alt="Pericolo">
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>&#129505; LE RISORSE</h2>
+    <p class="intro">Tutto gira intorno alle risorse: massimo <b>9</b> per tipo. A fine giornata consumi <b>1 Cibo</b> e <b>1 Acqua</b>: se mancano, perdi 1 PV.</p>
+    <div class="griglia-risorse">
+      <div class="risorsa-big" data-max>
+        <img src="art/icon_r1.png" alt="Cibo">
+        <h3>Cibo</h3>
+        <p>Da bacche, pesca, trappole e frutta. Senza cibo perdi PV ogni notte.</p>
+      </div>
+      <div class="risorsa-big" data-max>
+        <img src="art/icon_r2.png" alt="Acqua">
+        <h3>Acqua</h3>
+        <p>Fontane, pozzi e pioggia. L'acqua fresca non manca mai: la cerchi tu!</p>
+      </div>
+      <div class="risorsa-big" data-max>
+        <img src="art/icon_r3.png" alt="Legna">
+        <h3>Legna</h3>
+        <p>Serve per la tempesta, il falò e la pentola di coccio.</p>
+      </div>
+      <div class="risorsa-big" data-max>
+        <img src="art/icon_r4.png" alt="Erbe">
+        <h3>Erbe</h3>
+        <p>Curano malattie e sciami di insetti: tienile sempre a portata.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>&#127774; LA GIORNATA PASSO-PASSO</h2>
+    <div class="tappe">
+      <div class="tappa"><span class="num">1</span><div class="tappa-corpo"><h3>Evento del giorno</h3><p>Ogni mattina peschi un evento a caso fra 12 (tempesta, pioggia, ladro, tartarughe...). Lo risolvi subito, spesso con una scelta.</p></div><img src="art/icon_e1.png" alt="Eventi"></div>
+      <div class="tappa"><span class="num">2</span><div class="tappa-corpo"><h3>Peschi la mano</h3><p>5 carte (6 con lo Zaino grande). Le carte giocate e scartate tornano nel mazzo quando questo finisce.</p></div><img src="art/retro.png" alt="Mazzo"></div>
+      <div class="tappa"><span class="num">3</span><div class="tappa-corpo"><h3>3 azioni</h3><p>Giocare una carta costa 1 azione. Eventi come Giorno di sole o la Mappa del naufragio ne aggiungono.</p></div><img src="art/c10.png" alt="Azioni"></div>
+      <div class="tappa"><span class="num">4</span><div class="tappa-corpo"><h3>Gioca le carte</h3><p>Le AZIONI hanno effetto subito e finiscono nello scarto. STRUMENTI e PERSONE restano attivi nell'accampamento per sempre.</p></div><img src="art/c13.png" alt="Strumenti"></div>
+      <div class="tappa"><span class="num">5</span><div class="tappa-corpo"><h3>Concludi giornata</h3><p>Consumi -1 Cibo e -1 Acqua, poi si attivano i bonus di fine giornata (Rete da pesca, Amaca, Cuciniera...).</p></div><img src="art/c14.png" alt="Fine giornata"></div>
+      <div class="tappa"><span class="num">6</span><div class="tappa-corpo"><h3>Ripeti</h3><p>Se i PV arrivano a 0 perdi. Se arrivi al giorno 21, vinci! Ogni giorno diventa più difficile gestire le risorse.</p></div><img src="art/c09.png" alt="Riposo"></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>&#127183; LE 30 CARTE</h2>
+    <p class="intro">Passa il mouse sulle carte per ingrandirle. Le <b class="c-azione">AZIONI</b> danno un effetto immediato; i <b class="c-strumento">STRUMENTI</b> e le <b class="c-persona">PERSONE</b> restano attivi nell'accampamento.</p>
+    <div id="filtri">
+      <button class="filtro attivo" data-tipo="tutti">Tutte</button>
+      <button class="filtro" data-tipo="AZIONE">Azioni</button>
+      <button class="filtro" data-tipo="STRUMENTO">Strumenti</button>
+      <button class="filtro" data-tipo="PERSONA">Persone</button>
+    </div>
+    <div id="griglia-carte"></div>
+  </section>
+
+  <section class="reveal">
+    <h2>&#9925; I 12 EVENTI DEL GIORNO</h2>
+    <p class="intro">Ogni giorno ne arriva uno a caso. Nessuno di questi va mai nello scarto: tornano tutti in gioco.</p>
+    <div id="griglia-eventi"></div>
+  </section>
+
+  <section class="reveal">
+    <h2>&#128161; CONSIGLI DEL NAUFRAGO</h2>
+    <ul class="consigli">
+      <li>Le <b>Erbe</b> e la <b>Legna</b> ti salvano da Malattia, Sciame di insetti e Tempesta: non spenderle a caso.</li>
+      <li>Gli <b>STRUMENTI</b> pagano da soli: cerca subito Rete da pesca, Amaca e Falò.</li>
+      <li>Giocare <b>Riposo</b> o <b>Medicina</b> quando i PV sono già al massimo è uno spreco: tieni le azioni per le risorse.</li>
+      <li>La <b>Bottiglia col messaggio</b> e la <b>Nave lontana</b> sommano le carte in mano del giorno dopo: pianifica.</li>
+      <li>Se il mazzo finisce, lo scarto viene rimescolato: giocare carte forti presto le fa tornare prima.</li>
+      <li>Non avere fretta: 3 azioni ben usate battono 5 azioni sprecate.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>L'ISOLA &mdash; gioco di carte di sopravvivenza, pixel art 16-bit</p>
+  <a href="index.html">&#8592; Torna al gioco</a>
+</footer>
+
+<script>
+/* dati delle carte (stessi del gioco) */
+var CARTE = [
+  [1,'Raccolta di bacche','AZIONE','+2 Cibo','c01'],
+  [2,'Pesca con la lancia','AZIONE','+2 Cibo','c02'],
+  [3,'Trappola per conigli','AZIONE','+2 Cibo','c03'],
+  [4,'Cocco dell\'isola','AZIONE','+1 Cibo, +1 Acqua','c04'],
+  [5,'Fontana d\'acqua','AZIONE','+2 Acqua','c05'],
+  [6,'Scavo del pozzo','AZIONE','+2 Acqua','c06'],
+  [7,'Raccolta legna','AZIONE','+2 Legna (+3 con Accetta)','c07'],
+  [8,'Erbe medicinali','AZIONE','+2 Erbe','c08'],
+  [9,'Riposo','AZIONE','+1 PV','c09'],
+  [10,'Esplorazione','AZIONE','Peschi 1 carta','c10'],
+  [11,'Pane di radici','AZIONE','+1 Cibo, +1 Erbe','c11'],
+  [12,'Frutta tropicale','AZIONE','+2 Cibo','c12'],
+  [13,'Accetta','STRUMENTO','Azioni Legna: +1 extra','c13'],
+  [14,'Rete da pesca','STRUMENTO','Fine giornata: +1 Cibo','c14'],
+  [15,'Pentola di coccio','STRUMENTO','1 Legna -> +1 Cibo (1/giorno)','c15'],
+  [16,'Capanna','STRUMENTO','Protegge da Tempesta e Freddo','c16'],
+  [17,'Falò','STRUMENTO','Il Freddo non ti danneggia','c17'],
+  [18,'Accendino','STRUMENTO','Tempesta: basta 1 Legna','c18'],
+  [19,'Amaca','STRUMENTO','Fine giornata: +1 PV','c19'],
+  [20,'Zaino grande','STRUMENTO','Peschi 6 carte','c20'],
+  [21,'Naufrago pescatore','PERSONA','Ogni 3 giorni: +2 Cibo','c21'],
+  [22,'Anziana guaritrice','PERSONA','Ogni 4 giorni: +2 PV','c22'],
+  [23,'Cane da guardia','PERSONA','Il Ladro non ruba','c23'],
+  [24,'Ragazzo scalatore','PERSONA','Ogni 2 giorni: +1 carta','c24'],
+  [25,'Cuciniera','PERSONA','Fine giornata: +1 PV se hai mangiato','c25'],
+  [26,'Tesoro del relitto','AZIONE','+3 Cibo, +2 Legna','c26'],
+  [27,'Medicina','AZIONE','+3 PV','c27'],
+  [28,'Mappa del naufragio','AZIONE','+2 azioni oggi','c28'],
+  [29,'Bottiglia col messaggio','AZIONE','Domani: +2 carte','c29'],
+  [30,'Giorno fortunato','AZIONE','+2 carte, +1 azione','c30']
+];
+var EVENTI = [
+  ['Tempesta','icon_e1','Spendi 2 Legna (1 con l\'Accendino) o perdi 1 PV. La Capanna ti protegge.'],
+  ['Freddo notturno','icon_e2','-1 PV. Con il Falò o la Capanna nessun danno.'],
+  ['Pioggia','icon_e3','+2 Acqua.'],
+  ['Ladro','icon_e4','-1 Cibo. Il Cane da guardia lo scaccia.'],
+  ['Malattia','icon_e5','-1 PV, o spendi 1 Erba per curarti.'],
+  ['Mare calmo','icon_e6','+1 Cibo se hai la Rete da pesca.'],
+  ['Nido di tartarughe','icon_e7','+2 Cibo.'],
+  ['Nave lontana','icon_e8','Domani +1 carta in mano.'],
+  ['Grandi onde','icon_e9','-1 Cibo.'],
+  ['Giorno di sole','icon_e10','+1 azione oggi.'],
+  ['Sciame di insetti','icon_e11','-1 PV, o spendi 1 Erba per allontanarlo.'],
+  ['Frutta di stagione','icon_e12','+1 Cibo, +1 Acqua.']
+];
+
+function creaCarta(d) {
+  var div = document.createElement('div');
+  div.className = 'carta-manuale tipo-' + d[2];
+  div.dataset.tipo = d[2];
+  var nome = document.createElement('div');
+  nome.className = 'cm-nome';
+  nome.textContent = d[1];
+  var img = document.createElement('img');
+  img.src = 'art/' + d[4] + '.png';
+  img.alt = d[1];
+  img.onerror = function () { this.outerHTML = '<div class="segnaposto">' + d[1] + '</div>'; };
+  var eff = document.createElement('div');
+  eff.className = 'cm-effetto';
+  eff.textContent = d[3];
+  div.appendChild(nome);
+  div.appendChild(img);
+  div.appendChild(eff);
+  return div;
+}
+
+var griglia = document.getElementById('griglia-carte');
+CARTE.forEach(function (d) { griglia.appendChild(creaCarta(d)); });
+
+var grigliaE = document.getElementById('griglia-eventi');
+EVENTI.forEach(function (e) {
+  var div = document.createElement('div');
+  div.className = 'evento-manuale';
+  var img = document.createElement('img');
+  img.src = 'art/' + e[1] + '.png';
+  img.alt = e[0];
+  img.onerror = function () { this.outerHTML = '<div class="segnaposto">' + e[0] + '</div>'; };
+  var testo = document.createElement('div');
+  var b = document.createElement('b');
+  b.textContent = e[0];
+  testo.appendChild(b);
+  testo.appendChild(document.createElement('br'));
+  testo.appendChild(document.createTextNode(e[2]));
+  div.appendChild(img);
+  div.appendChild(testo);
+  grigliaE.appendChild(div);
+});
+
+document.querySelectorAll('#filtri .filtro').forEach(function (btn) {
+  btn.onclick = function () {
+    document.querySelectorAll('#filtri .filtro').forEach(function (b) { b.classList.remove('attivo'); });
+    btn.classList.add('attivo');
+    var tipo = btn.dataset.tipo;
+    document.querySelectorAll('.carta-manuale').forEach(function (c) {
+      c.classList.remove('nascosta');
+      if (tipo !== 'tutti' && c.dataset.tipo !== tipo) c.classList.add('nascosta');
+    });
+  };
+});
+
+/* animazioni all'apparire */
+var observer = new IntersectionObserver(function (voci) {
+  voci.forEach(function (v) { if (v.isIntersecting) v.target.classList.add('visibile'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(function (s) { observer.observe(s); });
+</script>
+</body>
+</html>

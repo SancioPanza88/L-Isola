@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><title>probe</title></head><body>
+<header id="topbar"><div id="logo-area"><img id="img-logo" src="art/logo.png" alt="Logo" data-emoji="&#127796;"></div><div id="giorno-box"><span id="giorno-val">1</span></div><div id="pv-box"><span id="pv-num">20</span><div id="pv-cuori"></div></div><div id="risorse-box"><div class="risorsa" id="ris-cibo"><span id="val-cibo">5</span></div></div></header>
+<main><div id="zona-evento"><div id="evento-contenuto"></div></div><section id="zona-mano"><div id="mano"></div></section><div id="barra-comandi"><button id="btn-fine">fine</button><button id="btn-nuova">nuova</button></div><aside><section id="zona-campo"><div id="campo"></div><button id="btn-pentola" hidden>pentola</button></section><section id="zona-log"><div id="log"></div></section></aside></main>
+<div id="overlay-modale" class="overlay" hidden=""><div id="modale-pannello"><h2 id="modale-titolo"></h2><p id="modale-testo"></p><div id="modale-bottoni"></div></div></div>
+<div id="overlay-finale" class="overlay" hidden=""><div id="finale-pannello"><h2 id="finale-titolo"></h2><p id="finale-sottotitolo"></p><div id="finale-riepilogo"></div><button id="btn-ancora">ancora</button></div></div>
+<script src="game.js"></script>
+<script>
+setTimeout(function () {
+  var bf = document.getElementById("btn-fine");
+  var pv = document.getElementById("pv-num");
+  document.title = "bf=" + (bf ? "SI" : "NO") + "|log=" + document.getElementById("log").childNodes.length + "|pv=" + (pv ? pv.textContent : "MISS") + "|mano=" + document.getElementById("mano").childNodes.length + "|cuori=" + document.getElementById("pv-cuori").childNodes.length;
+}, 800);
+</script></body></html>

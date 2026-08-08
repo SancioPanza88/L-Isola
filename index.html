@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b2432">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="L'ISOLA">
+<title>L'ISOLA - Sopravvivenza</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%9D%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="gioco">
+
+  <header id="topbar">
+    <div id="logo-area">
+      <img id="img-logo" src="art/logo.png" alt="Logo L'ISOLA" data-emoji="&#127796;">
+      <h1 id="titolo">L'ISOLA</h1>
+    </div>
+    <div id="giorno-box" class="pannello-semplice">
+      <span class="etichetta">GIORNO</span>
+      <span id="giorno-val">1</span>
+      <span class="slash">/21</span>
+    </div>
+    <div id="pv-box">
+      <div class="pv-riga"><span class="etichetta">PV</span><span id="pv-num">20</span></div>
+      <div id="pv-cuori"></div>
+    </div>
+    <div id="risorse-box">
+      <div class="risorsa" id="ris-cibo" title="Cibo: lo consumi 1 a fine giornata; se finisce perdi 1 PV."><img src="art/icon_r1.png" alt="Cibo" data-emoji="&#127830;"><span class="r-val" id="val-cibo">5</span></div>
+      <div class="risorsa" id="ris-acqua" title="Acqua: ne consumi 1 a fine giornata; se finisce, perdi 1 PV."><img src="art/icon_r2.png" alt="Acqua" data-emoji="&#128167;"><span class="r-val" id="val-acqua">5</span></div>
+      <div class="risorsa" id="ris-legna" title="Legna: serve per la Tempesta (ne paga 2) e per la Pentola di coccio."><img src="art/icon_r3.png" alt="Legna" data-emoji="&#129713;"><span class="r-val" id="val-legna">3</span></div>
+      <div class="risorsa" id="ris-erbe" title="Erbe: curano l'evento Malattia e lo Sciame di insetti (1 a uso)."><img src="art/icon_r4.png" alt="Erbe" data-emoji="&#127807;"><span class="r-val" id="val-erbe">1</span></div>
+    </div>
+    <div id="barra-top-bottoni">
+      <button id="btn-tutorial" class="btn-top" title="Gioca il tutorial passo-passo">&#10067; TUTORIAL</button>
+      <button id="btn-manuale" class="btn-top" title="Apri il manuale illustrato">&#128214; MANUALE</button>
+      <button id="btn-suono" class="btn-top" title="Attiva o disattiva l'audio">&#128266;</button>
+    </div>
+  </header>
+
+  <div id="consiglio" hidden>
+    <span class="consiglio-ico">&#128161;</span>
+    <span id="consiglio-testo"></span>
+  </div>
+
+  <main id="principale">
+    <section id="col-sx">
+      <div id="zona-evento">
+        <h2>EVENTO DEL GIORNO</h2>
+        <div id="evento-contenuto"></div>
+      </div>
+      <section id="zona-mano">
+        <div id="mano-head">
+          <h2>LA TUA MANO</h2>
+          <span class="azioni-info">Azioni: <b id="azioni-val">3</b></span>
+        </div>
+        <div id="mano"></div>
+      </section>
+      <div id="barra-comandi">
+        <button id="btn-fine" class="btn-principale">Concludi giornata</button>
+        <button id="btn-nuova" class="btn-secondario">Nuova partita</button>
+      </div>
+    </section>
+    <aside id="col-dx">
+      <section id="zona-campo">
+        <h2>ACCAMPAMENTO</h2>
+        <div id="campo"></div>
+        <button id="btn-pentola" class="btn-secondario" hidden>Pentola di coccio</button>
+      </section>
+      <section id="zona-log">
+        <h2>DIARIO DI BORDO</h2>
+        <div id="log"></div>
+      </section>
+    </aside>
+  </main>
+
+</div>
+
+<div id="overlay-modale" class="overlay" hidden>
+  <div id="modale-pannello">
+    <h2 id="modale-titolo"></h2>
+    <p id="modale-testo"></p>
+    <div id="modale-bottoni"></div>
+  </div>
+</div>
+
+<div id="overlay-finale" class="overlay" hidden>
+  <div id="finale-pannello">
+    <h2 id="finale-titolo"></h2>
+    <p id="finale-sottotitolo"></p>
+    <div id="finale-riepilogo"></div>
+    <button id="btn-ancora" class="btn-principale">Gioca ancora</button>
+  </div>
+</div>
+
+<div id="overlay-riepilogo" class="overlay" hidden>
+  <div id="riep-pannello">
+    <h2 id="riep-titolo">GIORNO &hellip; &mdash; RIEPILOGO</h2>
+    <p id="riep-sottotitolo">Ecco com&rsquo;&egrave; andata la giornata:</p>
+    <div id="riep-righe"></div>
+    <button id="btn-riep-avanti" class="btn-principale">Inizia il prossimo giorno</button>
+  </div>
+</div>
+
+<div id="overlay-inizio" class="overlay" hidden>
+  <div id="inizio-pannello">
+    <div id="inizio-logo-wrap">
+      <img id="inizio-logo" src="art/logo.png" alt="Logo L'ISOLA" data-emoji="&#127796;">
+      <h1 id="inizio-titolo">L'ISOLA</h1>
+    </div>
+    <p id="inizio-sottotitolo">Sei naufragato su un'isola deserta: <b>sopravvivi 21 giorni</b>. Il giorno 22 arriva la nave di soccorso: <b>vittoria</b>. Se i Punti Vita (&#9829;) arrivano a 0, l'isola vince.</p>
+    <div id="inizio-regole">
+      <div class="regola"><b>1.</b> Ogni mattina: un EVENTO, buono o cattivo (es. Pioggia = +2 Acqua, Tempesta = spendi Legna o -1 PV).</div>
+      <div class="regola"><b>2.</b> Poi peschi 5 CARTE: giocarne una costa 1 azione, ne hai 3 al giorno.</div>
+      <div class="regola"><b>3.</b> Le carte AZIONE agiscono subito; STRUMENTO e PERSONA restano attive per sempre nell'accampamento.</div>
+      <div class="regola"><b>4.</b> A fine giornata consumi 1 CIBO e 1 ACQUA: se manca una delle due, perdi 1 PV.</div>
+      <div class="regola"><b>5.</b> Risorse massime: 9. Le ERBE curano Malattia e Insetti. I cuori sono i tuoi PV.</div>
+      <div class="regola"><b>6.</b> Sopravvivi 21 giornate e vinci. Se i PV arrivano a 0, la partita finisce.</div>
+    </div>
+    <div id="inizio-bottoni">
+      <button id="btn-nuova-partita" class="btn-principale">&#9654; Nuova partita</button>
+      <button id="btn-continua" class="btn-secondario" hidden>Continua</button>
+      <button id="btn-inizio-tutorial" class="btn-secondario">&#10067; Tutorial</button>
+      <button id="btn-inizio-manuale" class="btn-secondario">&#128214; Manuale</button>
+    </div>
+  </div>
+</div>
+
+<div id="overlay-tutorial-fine" class="overlay" hidden>
+  <div id="tutorial-fine-pannello">
+    <h2 id="tutorial-fine-titolo">TUTORIAL COMPLETATO!</h2>
+    <p id="tutorial-fine-testo"></p>
+    <details id="tutorial-regole">
+      <summary>Le regole in 10 righe</summary>
+      <div class="regola"><b>1.</b> Sopravvivi 21 giorni: al 22 la nave arriva e vinci. PV a 0 = fine.</div>
+      <div class="regola"><b>2.</b> Ogni mattina c'è un EVENTO (buono o cattivo).</div>
+      <div class="regola"><b>3.</b> Peschi 5 CARTE: 1 carta = 1 azione, hai 3 azioni al giorno.</div>
+      <div class="regola"><b>4.</b> AZIONE = effetto subito. STRUMENTO/PERSONA = restano attive per sempre.</div>
+      <div class="regola"><b>5.</b> La sera consumi 1 CIBO e 1 ACQUA: se manca, -1 PV.</div>
+      <div class="regola"><b>6.</b> Risorse max 9. Le ERBE curano Malattia e Insetti.</div>
+      <div class="regola"><b>7.</b> Capanna e Falò proteggono da Tempesta e Freddo; il Cane dal Ladro.</div>
+      <div class="regola"><b>8.</b> La Rete dà +1 Cibo a sera, l'Amaca +1 PV, la Cuciniera +1 PV se hai mangiato.</div>
+      <div class="regola"><b>9.</b> Le carte in mano a sera vanno nello scarto: non le perdi, tornano nel mazzo.</div>
+      <div class="regola"><b>10.</b> Il riepilogo a fine giornata mostra sempre com'è andata.</div>
+    </details>
+    <div id="tutorial-fine-bottoni">
+      <button id="btn-inizia-vera" class="btn-principale">Inizia la partita vera</button>
+      <button id="btn-tutorial-riprova" class="btn-secondario" hidden>Riprova il tutorial</button>
+    </div>
+  </div>
+</div>
+
+<div id="tutorial-tip" hidden>
+  <div id="tutorial-testo"></div>
+  <button id="tutorial-avanti" class="btn-secondario">Ho capito</button>
+</div>
+
+<script src="audio.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
