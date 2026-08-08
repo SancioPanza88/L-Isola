@@ -19,7 +19,7 @@
   &nbsp;•&nbsp;
   <a href="manual.html">📖 Manuale illustrato</a>
   &nbsp;•&nbsp;
-  <a href="PROMPTS.md">🎨 Prompt grafici</a>
+  
 </p>
 
 ---
